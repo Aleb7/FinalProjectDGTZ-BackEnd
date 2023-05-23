@@ -10,7 +10,7 @@ import java.util.List;
 public class Trip {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)         //PK autoincrementale
     private long id;
 
     @Column(name = "name" )
@@ -28,14 +28,18 @@ public class Trip {
     private Date arrival;
 
 
-    @Column(name = "travel_price")
+    @Column(name = "travel_price", columnDefinition = "DECIMAL(5,2)") //mette 5 cifre totali e 2 cifre decimali
     private double travelPrice;
 
     @Column(name = "flight_price", columnDefinition = "DECIMAL(5,2)")
     private double flightPrice;
 
-    @OneToMany(mappedBy = "trip")
-    private List<BookedTrip>bookedTrips;
+    @Column(name = "imgSource", columnDefinition = "TEXT")
+    private String imgSource;
+
+    @OneToMany(mappedBy = "trip")             //  indica che l'entità corrente ha una relazione di uno a molti con l'entità BookedTrip,
+    private List<BookedTrip>bookedTrips;         //per ogni viaggio posso avere un istanza della classe prenotazione viaggio collegata al viaggio specifico
+
 
 
 
@@ -105,5 +109,13 @@ public class Trip {
 
     public void setBookedTrips(List<BookedTrip> bookedTrips) {
         this.bookedTrips = bookedTrips;
+    }
+
+    public String getImgSource() {
+        return imgSource;
+    }
+
+    public void setImgSource(String imgSource) {
+        this.imgSource = imgSource;
     }
 }

@@ -21,7 +21,7 @@ public class TripService {
     public Trip getById (long id) {
         Optional<Trip> optionalTrip = tripRepository.findById(id);
         if (optionalTrip.isEmpty()) {
-            throw new IllegalStateException("Book not found ");
+            throw new IllegalStateException("Trip not found ");
         }
         return optionalTrip.get();
     }

@@ -11,6 +11,7 @@ public class TripDTO {
     private double flightPrice;
     private double travelPrice;
     private String name;
+    private String imgSource;
 
 
     public long getId() {
@@ -70,5 +71,11 @@ public class TripDTO {
         this.name = name;
     }
 
+    public String getImgSource() {
+        return imgSource;
+    }
 
+    public void setImgSource(String imgSource) {
+        this.imgSource = imgSource;
+    }
 }

@@ -5,3 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookedTripRepository extends JpaRepository <BookedTrip,Long> {
 }
+
+//per fornire operazioni di accesso e gestione dei dati
+//per l'entità BookedTrip utilizzando un'implementazione predefinita.
